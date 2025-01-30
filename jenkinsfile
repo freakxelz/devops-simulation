@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t devops-simulasi-app .'
+                sh 'docker build -t devops-simulation-app .'
             }
         }
         stage('Test') {
             steps {
-                sh 'docker run devops-simulasi-app python -m pytest'
+                sh 'docker run devops-simulation-app python -m pytest'
             }
         }
         stage('Deploy') {
