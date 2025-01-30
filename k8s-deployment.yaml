@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-simulation-app
+  name: devops-simulation
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: devops-simulation-app
+      app: devops-simulation
   template:
     metadata:
       labels:
-        app: devops-simulation-app
+        app: devops-simulation
     spec:
       containers:
-      - name: devops-simulation-app
-        image: devops-simulation-app
+      - name: devops-simulation
+        image: devops-simulation
         ports:
         - containerPort: 5000
