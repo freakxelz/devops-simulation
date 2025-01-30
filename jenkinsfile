@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker build -t devops-simulasi-app .'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'docker run devops-simulasi-app python -m pytest'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'kubectl apply -f k8s-deployment.yaml'
+            }
+        }
+    }
+}
